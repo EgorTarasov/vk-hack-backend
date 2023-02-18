@@ -4,7 +4,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
 DATABASE_URL = (
-    f"postgresql://${getenv('DB_USER')}:${getenv('DB_PASS')}@{getenv('DB_HOST')}:{getenv('DB_PORT')}/${getenv('DB_NAME')}" if getenv("DB_HOST") else "db:sqlite:///db.sqlite"
+    f"postgresql://{getenv('POSTGRES_USER')}:{getenv('POSTGRES_PASSWORD')}@{getenv('POSTGRES_HOST')}:{getenv('POSTGRES_PORT')}/{getenv('POSTGRES_DB')}" if getenv("POSTGRES_HOST") else "db:sqlite:///db.sqlite"
 )
 
 ACCESS_TOKEN_EXPIRE_MINUTES = (

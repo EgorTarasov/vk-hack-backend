@@ -4,11 +4,6 @@ version: "3.9"
 services:
   db:
     image: postgres:13.3
-    healthcheck:
-      test: /usr/bin/pg_isready
-      interval: 5s
-      timeout: 10s
-      retries: 65
     volumes:
       - db:/var/lib/postgresql/data
     env_file:
@@ -20,9 +15,8 @@ services:
     build:
       context: .
     image: vk_hack-misis_tolerant-backend
-    depends_on: # healthy db
-      db:
-        condition: service_healthy
+    depends_on:  # Health check (pool pre-ping) is performed on the backend service
+      - db
     extra_hosts:
       - "host.docker.internal:host-gateway"
     env_file:

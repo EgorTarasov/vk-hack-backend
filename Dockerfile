@@ -11,8 +11,8 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # Copy source code
-COPY ./src/app ./
-COPY ./src/sql ./
+COPY ./src/app/ ./app/
+COPY ./src/sql/ ./sql/
 COPY ./src/main.py ./
 COPY settings.py ./
 
