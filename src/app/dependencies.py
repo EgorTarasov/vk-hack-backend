@@ -1,6 +1,5 @@
 from sql import database
 
-
 def get_db():
     db = database.SessionLocal()
     try:

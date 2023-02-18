@@ -17,7 +17,6 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 def create_token(form: UserData, expires_data: Optional[timedelta] = None) -> str:
-
     # TODO: Save token
     form.dict()
     to_encode = {"vkid": form.vkid}
